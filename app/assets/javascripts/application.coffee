@@ -27,6 +27,25 @@ exports = MakerMap
 MakerMap.setup = () ->
   $(".chosen-select").chosen()
 
+  options = {
+    align: 'center',
+    autoResize: false,
+    comparator: null,
+    container: $('body'),
+    direction: undefined,
+    ignoreInactiveItems: true,
+    itemWidth: 0,
+    fillEmptySpace: false,
+    flexibleWidth: 0,
+    offset: 2,
+    onLayoutChanged: undefined,
+    outerOffset: 0,
+    possibleFilters: [],
+    resizeDelay: 50,
+    verticalOffset: undefined
+  }
+  $('.wookmarkable').wookmark(options)
+
   # Bring online fancy markdown editor
   if $("textarea").length > 0
     editor = new Editor()

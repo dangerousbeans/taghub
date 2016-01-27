@@ -3,6 +3,7 @@
   "dependencies": {
     "chosen": "latest",
     "bootstrap": "latest",
-    "leaflet": "latest"
+    "leaflet": "latest",
+    "wookmark-jquery": "latest"
   }
 }

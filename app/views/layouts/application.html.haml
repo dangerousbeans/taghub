@@ -18,6 +18,15 @@
 
     = csrf_meta_tags
   %body
+    :plain
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=402343199974754";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
     #main_nav.navbar.navbar-default.navbar-static-top
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
@@ -28,6 +37,14 @@
           Makers Net
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
+            %li
+              = link_to places_path do
+                Map
+                %span.glyphicon.glyphicon-globe
+            %li
+              = link_to stories_path do
+                Stories
+                %span.glyphicon.glyphicon-heart-empty
             %li
               = link_to places_path do
                 Places
@@ -44,14 +61,11 @@
             .form-group.input-group-lg
               %input.form-control{ type: 'text', placeholder: "Search", name: 'q', value: params[:q] }
 
-
-
-
     - if @all_results
-      #container-fluid
-        .row
-          .col-md-12
-            #map-container
+      -# #container-fluid
+      -#   .row
+      -#     .col-md-12
+      -#       #map-container
     #main_content{ class: content_for?(:layout_type) ? yield(:layout_type) : 'container' }
       .row{style: 'height: 0'}
         .col-md-4.pull-right

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @story.name
+%p
+  %b Latlong:
+  = @story.latlong
+%p
+  %b Data:
+  = @story.data
+
+= link_to 'Edit', edit_story_path(@story)
+\|
+= link_to 'Back', stories_path

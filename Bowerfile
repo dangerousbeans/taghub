@@ -6,3 +6,4 @@ assets_path "assets/components"
 asset 'chosen'
 asset 'bootstrap'
 asset 'leaflet'
+asset 'wookmark-jquery'

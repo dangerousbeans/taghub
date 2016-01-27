@@ -17,11 +17,19 @@ source 'https://rubygems.org' do
   gem 'leaflet-rails'
   gem 'geocoder'
 
+  # Social media
+  gem 'yt', '~> 0.25.5'
+  # gem "socialization"
+  gem 'twitter'
+  gem 'rails_autolink'
+
+
   # AR Extensions
   gem 'activerecord-postgres-earthdistance'
   gem 'elasticsearch-model'
   gem 'elasticsearch-rails'
 
+  gem "figaro"
 
   gem 'redcarpet'
   gem 'haml-rails'
