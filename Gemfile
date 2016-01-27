@@ -47,6 +47,8 @@ source 'https://rubygems.org' do
   gem 'newrelic_rpm'
   # gem 'angular-rails-templates'
 
+  gem 'acts-as-taggable-on', '~> 3.4'
+
   group :development do
     gem 'better_errors'
     gem 'foreman'

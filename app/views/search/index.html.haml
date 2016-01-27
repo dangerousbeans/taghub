@@ -14,5 +14,6 @@
           = render partial: 'twitter_result', locals: { result: r}
   .col-md-2
     - @tags.each do |tag|
-      %h2
+
+      %strong{ style: "font-size: #{tag.font_size}em;"}
         = link_to "##{tag.name}", root_url(tags: "##{tag.name}")

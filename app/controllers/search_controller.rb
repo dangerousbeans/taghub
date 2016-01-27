@@ -17,14 +17,18 @@ class SearchController < ApplicationController
     [ "#makerhood" ].each do |forced_keyword|
       @hashtags = "#{@hashtags} #{forced_keyword}" unless @hashtags.include?(forced_keyword)
     end
-    #
-    # @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
-    #
-    # @twitter_results.each do |tr|
-    #   t = Tweet.find_or_initialize_by(tweet_id: tr.id)
-    #   t.data = tr.to_json
-    #   t.save!
-    # end
+
+    @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
+
+    @twitter_results.each do |tr|
+      t = Tweet.find_or_initialize_by(tweet_id: tr.id)
+      t.data = tr.to_json
+
+      tr.hashtags.each do |hashtag|
+        t.tag_list.add(hashtag.text)
+      end
+      t.save!
+    end
 
     @video_results = Rails.cache.fetch(@hashtags, expires_in: 2.hours) do
       videos = Yt::Collections::Videos.new
@@ -42,6 +46,6 @@ class SearchController < ApplicationController
 
     # @social_results.shuffle!
 
-    @tags = Tag.all
+    @tags = Tag.all.order(taggings_count: :desc)
   end
 end
