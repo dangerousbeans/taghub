@@ -2,12 +2,13 @@
   .panel-body.search-result-body
     .media-left.media-middle
       %media
-        = image_tag result.user.profile_image_url
-        = result.user.name
+        = image_tag result.safe_data.user["profile_image_url"]
+        = result.safe_data.user["name"]
 
       %h3
-        = auto_link(result.text).html_safe
+        = auto_link(result.safe_data.text).html_safe
 
       %media
-        - result.media.each do |media|
-          = image_tag media.media_url
+        - if result.safe_data.media
+          - result.safe_data.media.each do |media|
+            = image_tag media.media_url

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tweets
   resources :stories
   resources :events
   devise_for :users
