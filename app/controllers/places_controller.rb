@@ -1,10 +1,20 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
+  RESULT_SET = 100
+
   # GET /places
   # GET /places.json
   def index
     @places = Place.all
+
+    if params[:q].blank?
+      @results = Elasticsearch::Model.search( { query: { match_all: {} } }, [Place, Person]).page(params[:page]).records
+      @all_results = Elasticsearch::Model.search( { query: { match_all: {} }, size: RESULT_SET }, [Place, Person]).records.to_a
+    else
+      @results = Elasticsearch::Model.search(params[:q], [Place, Person]).page(params[:page]).records
+      @all_results = Elasticsearch::Model.search(params[:q], [Place, Person]).records.to_a
+    end
   end
 
   # GET /places/1
