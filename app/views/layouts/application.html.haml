@@ -28,7 +28,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
     #main_nav.navbar.navbar-default.navbar-static-top
-      .container
+      .container-fluid
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.fa.fa-bar
           %span.fa.fa-bar
@@ -46,10 +46,6 @@
                 Stories
                 %span.glyphicon.glyphicon-heart-empty
             %li
-              = link_to places_path do
-                Places
-                %span.glyphicon.glyphicon-tree-deciduous
-            %li
               = link_to people_path do
                 People
                 %span.glyphicon.glyphicon-user
@@ -61,12 +57,7 @@
             .form-group.input-group-lg
               %input.form-control{ type: 'text', placeholder: "Search", name: 'q', value: params[:q] }
 
-    - if @all_results
-      -# #container-fluid
-      -#   .row
-      -#     .col-md-12
-      -#       #map-container
-    #main_content{ class: content_for?(:layout_type) ? yield(:layout_type) : 'container' }
+    #main_content{ class: 'container-fluid' }
       .row{style: 'height: 0'}
         .col-md-4.pull-right
       .row

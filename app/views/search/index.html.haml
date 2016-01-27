@@ -1,19 +1,18 @@
+%h1= @hashtags
 
-.row
-  .col-md-8
-    %h3= @hashtags
-    .media.wookmarkable
-      = link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags}", class: "btn btn-success" do
-        Add
 
+= link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags}", class: "btn btn-success" do
+  Add
+.row.wookmark-row
+
+  .col-md-10
+    .wookmarkable
       - @social_results.each do |r|
         - if r.is_a?(Yt::Models::Video)
           = render partial: 'video_result', locals: { result: r }
         - else
           = render partial: 'twitter_result', locals: { result: r}
-
-  .col-md-4
+  .col-md-2
     - @tags.each do |tag|
-      = render partial: "tags/show_small.html", locals: { tag: tag }
-
-= render "map"
+      %h2
+        = link_to "##{tag.name}", root_url(tags: "##{tag.name}")

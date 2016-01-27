@@ -1,14 +1,4 @@
-%h1 Places
-
-.row
-  .col-md-8
-    - @places.each do |place|
-      = render partial: 'search/result', locals: { result: place }
-      - if current_user
-        = link_to 'Show', place
-        = link_to 'Edit', edit_place_path(place)
-        = link_to 'Destroy', place, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+#map
 %br
 
 = link_to 'Suggest New Place', new_place_path

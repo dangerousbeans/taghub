@@ -15,6 +15,7 @@
 #= require chosen
 #= require leaflet
 #= require bootstrap
+#= require wookmark-jquery
 
 #= require_tree .
 
@@ -22,34 +23,33 @@
 
 window.MakerMap = {}
 exports = MakerMap
-
+options = {
+  align: 'center',
+  autoResize: true,
+  comparator: null,
+  container: $('.wookmarkable'),
+  direction: undefined,
+  ignoreInactiveItems: true,
+  itemWidth: 300,
+  fillEmptySpace: true,
+  flexibleWidth: 400,
+  offset: 15,
+  onLayoutChanged: undefined,
+  outerOffset: 0,
+  possibleFilters: [],
+  resizeDelay: 10,
+  verticalOffset: 20
+}
 
 MakerMap.setup = () ->
-  $(".chosen-select").chosen()
-
-  options = {
-    align: 'center',
-    autoResize: false,
-    comparator: null,
-    container: $('body'),
-    direction: undefined,
-    ignoreInactiveItems: true,
-    itemWidth: 0,
-    fillEmptySpace: false,
-    flexibleWidth: 0,
-    offset: 2,
-    onLayoutChanged: undefined,
-    outerOffset: 0,
-    possibleFilters: [],
-    resizeDelay: 50,
-    verticalOffset: undefined
-  }
-  $('.wookmarkable').wookmark(options)
+  $(".chosen-select").chosen
 
   # Bring online fancy markdown editor
   if $("textarea").length > 0
     editor = new Editor()
     editor.render()
+
+  $('.wookmarkable').wookmark(options)
 
   return
 
@@ -57,3 +57,5 @@ MakerMap.setup = () ->
 # Fire setup event whenever the page loads
 $(document).ready( MakerMap.setup )
 $(document).on('page:load', MakerMap.setup )
+
+$('.wookmarkable').wookmark(options)
