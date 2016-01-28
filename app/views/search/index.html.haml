@@ -1,7 +1,9 @@
+- if (params.has_key?(:tags))
+  %h1= @hashtags.gsub("#makerhood", "")
+- else
+  = image_tag "hp_banner.jpeg", class: "img-responsive"
+  %h1.tag-line Makerhood is the community that creates its own reality.
 
-= image_tag "hp_banner.jpeg", class: "img-responsive"
-
-%h1= @hashtags.gsub("#makerhood", "")
 
 - @hashtags.split(" ").each do |hashtag|
   - next if hashtag != "#makerhood"
