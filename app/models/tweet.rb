@@ -3,6 +3,14 @@ class Tweet < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  has_many :votes
+
+  def vote!(ip)
+    unless Vote.recent.exists?(:ip => ip, :tweet_id => id)
+      increment!(:votes_up)
+      Vote.create(:ip => ip, :tweet_id => id)
+    end
+  end
 
   def safe_data
     OpenStruct.new(data)
