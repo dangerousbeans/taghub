@@ -1,4 +1,8 @@
-%h1= @hashtags
+-# %h1= @hashtags
+
+-#- @hashtags.each do |hashtag|
+-#  - next if hashtag == "makerhood"
+-#    = %h1{ style: "font-size: 2em;"}
 
 
 - @active_tags.each do |t|
@@ -16,7 +20,13 @@
 = link_to new_story_path(hashtags: @hashtags), class: "btn btn-success" do
   Tell Story
 .row.wookmark-row
-  .col-md-10
+  .col-md-12
+    - @tags.each do |tag|
+      %strong{ style: "font-size: #{tag.font_size}em;"}
+        = link_to "##{tag.name}", root_url(tags: "##{tag.name}"), style: "color: #{tag.color};"
+        
+.row.wookmark-row
+  .col-md-12
     .wookmarkable
       - @social_results.each do |r|
         - if r.is_a?(Yt::Models::Video)
@@ -25,7 +35,3 @@
           = render partial: 'story_result', locals: { result: r }
         - else
           = render partial: 'twitter_result', locals: { result: r}
-  .col-md-2
-    - @tags.each do |tag|
-      %strong{ style: "font-size: #{tag.font_size}em;"}
-        = link_to "##{tag.name}", root_url(tags: "##{tag.name}"), style: "color: #{tag.color};"
