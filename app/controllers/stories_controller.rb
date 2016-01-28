@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
     params["story"]["tag_list"].gsub("#", "").split(" ").each do |tag|
       t = Tag.where('lower(name) = ?', tag.downcase).first
 
-      @story.tag_list.add t.name if t
+      @story.tag_list.add t.name.gsub("#", "") if t
     end
 
     respond_to do |format|
