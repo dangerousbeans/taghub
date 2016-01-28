@@ -6,5 +6,9 @@
     = f.input :color, input_html: { class: "colors" }
     = f.association 'places', :include_blank => false, input_html: { class: "chosen-select", data: { placeholder: "Select places for this tag" } }
 
+    = f.input :icon
+    = f.input :description
+
+
   .form-actions
     = f.button :submit
