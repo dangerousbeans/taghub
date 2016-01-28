@@ -22,12 +22,14 @@ class SearchController < ApplicationController
       @active_tags.push t if t
     end
 
-    ApiFetcher.perform_async(@hashtags)
-
+    begin
+      ApiFetcher.perform_async(@hashtags)
+    rescue Exception => e
+      console.log e
+    end
     @twitter_results = Elasticsearch::Model.search({ query: { "query_string": { query: @hashtags.split(" ").join(" AND ") } } }, [Tweet, Story]).records.to_a
 
     @social_results = @twitter_results# + @video_results
-
 
     @tags = Tag.where("name != 'makerhood' AND taggings_count > 0").order(taggings_count: :desc).limit(30)
   end
