@@ -40,24 +40,24 @@ class SearchController < ApplicationController
       end
       t.save!
     end
-
-    @video_results = Rails.cache.fetch(@hashtags, expires_in: 2.hours) do
-      videos = Yt::Collections::Videos.new
-      @video_results = videos.where(q: @hashtags)
-    end
+    #
+    # @video_results = Rails.cache.fetch(@hashtags, expires_in: 2.hours) do
+    #   videos = Yt::Collections::Videos.new
+    #   @video_results = videos.where(q: @hashtags)
+    # end
 
     @twitter_results = Tweet.search(query: { "query_string": { query: @hashtags.split(" ").join(" AND ") } }).records.to_a
 
     @social_results = @twitter_results# + @video_results
-
-    @video_results.each.with_index do |video, i|
-      @social_results << video
-
-      break if i > 10
-    end
+    #
+    # @video_results.each.with_index do |video, i|
+    #   @social_results << video
+    #
+    #   break if i > 10
+    # end
 
     # @social_results.shuffle!
 
-    @tags = Tag.all.order(taggings_count: :desc).limit(30)
+    @tags = Tag.where("name != 'makerhood' AND taggings_count > 0").order(taggings_count: :desc).limit(30)
   end
 end
