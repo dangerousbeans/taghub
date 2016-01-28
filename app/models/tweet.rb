@@ -13,7 +13,7 @@ class Tweet < ActiveRecord::Base
   end
 
   # Called by the elasticsearch indexer and should add the tag names
-  def as_indexed_json(options={})
-    as_json(include: { tags: { only: :name } } )
-  end
+  # def as_indexed_json(options={})
+  #   as_json(include: { tags: { only: :name } } )
+  # end
 end
