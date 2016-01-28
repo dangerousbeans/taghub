@@ -24,6 +24,7 @@ source 'https://rubygems.org' do
   gem 'rails_autolink'
 
   gem 'sidekiq'
+  gem 'newrelic_rpm'
 
   # AR Extensions
   gem 'activerecord-postgres-earthdistance'
