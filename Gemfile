@@ -22,6 +22,7 @@ source 'https://rubygems.org' do
   # gem "socialization"
   gem 'twitter'
   gem 'rails_autolink'
+  gem "font-awesome-rails"
 
   gem 'sidekiq'
   gem 'newrelic_rpm'
