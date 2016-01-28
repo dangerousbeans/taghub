@@ -16,9 +16,9 @@
 #= require leaflet
 #= require bootstrap
 #= require wookmark-jquery
+#= require jquery.minicolors
 
 #= require_tree .
-
 
 
 window.MakerMap = {}
@@ -43,6 +43,7 @@ options = {
 
 MakerMap.setup = () ->
   $(".chosen-select").chosen
+  $('.colors input[type=text]').minicolors()
 
   # Bring online fancy markdown editor
   if $("textarea").length > 0

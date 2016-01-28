@@ -46,7 +46,7 @@ class SearchController < ApplicationController
       @video_results = videos.where(q: @hashtags)
     end
 
-    @twitter_results = Tweet.search(@hashtags).records.to_a
+    @twitter_results = Tweet.search(query: { "query_string": { query: @hashtags.split(" ").join(" AND ") } }).records.to_a
 
     @social_results = @twitter_results# + @video_results
 
@@ -58,6 +58,6 @@ class SearchController < ApplicationController
 
     # @social_results.shuffle!
 
-    @tags = Tag.all.order(taggings_count: :desc)
+    @tags = Tag.all.order(taggings_count: :desc).limit(30)
   end
 end

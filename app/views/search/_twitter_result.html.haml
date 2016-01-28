@@ -3,11 +3,6 @@
 
     .media-left.media-middle
       %media
-        = image_tag result.safe_data.user["profile_image_url"]
-        = result.safe_data.user["name"]
-
-
-      %media
         - if result.safe_data.entities
           - result.safe_data.entities.each do |media|
             -# = media[1]
@@ -18,5 +13,16 @@
               - if url['expanded_url']
                 %iframe{ src: "https://www.youtube.com/embed/#{url['expanded_url'].split("/").last }", frameborder: "0" }           
 
-      %h4
+
+
+
+      %h3
         = auto_link(result.safe_data.text).html_safe
+      %media
+        = image_tag result.safe_data.user["profile_image_url"]
+        = result.safe_data.user["name"]
+
+      - result.safe_data.entities["hashtags"].each do |hashtag|
+        - next if hashtag == "makerhood"
+        %p.hashtag
+          = link_to "##{hashtag['text']}", root_url(tags: "##{hashtag['text']}")

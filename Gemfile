@@ -48,6 +48,7 @@ source 'https://rubygems.org' do
 
   # gem 'link_thumbnailer'
   gem 'acts-as-taggable-on', '~> 3.4'
+  gem 'jquery-minicolors-rails'
 
   group :development do
     gem 'better_errors'

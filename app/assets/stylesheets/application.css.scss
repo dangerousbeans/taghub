@@ -15,6 +15,7 @@
  *
  *= require bootstrap/dist/css/bootstrap
  *= require leaflet
+ *= require jquery.minicolors
  *= require_tree .
  *= require_self
  */
@@ -51,6 +52,7 @@
     .media-left {
     
       background: #0ff;
+      padding-right: 0;
       
       
      media {
