@@ -24,15 +24,15 @@
 window.MakerMap = {}
 exports = MakerMap
 options = {
-  align: 'left',
+  align: 'center',
   autoResize: true,
   comparator: null,
   container: $('.wookmarkable'),
   direction: undefined,
   ignoreInactiveItems: true,
-  itemWidth: "33.3%",
+  itemWidth: 300,
   fillEmptySpace: false,
-  flexibleWidth: true,
+  flexibleWidth: "100%",
   offset: 0,
   onLayoutChanged: undefined,
   outerOffset: 0,
