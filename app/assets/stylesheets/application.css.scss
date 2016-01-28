@@ -20,7 +20,7 @@
  *= require_self
  */
 
-a {
+	a {
 		color: #000;
 		text-decoration: none;
 		font-weight: inherit;
@@ -42,6 +42,25 @@ a {
 #map-container
 {
   min-height: 35em
+}
+
+.navbar-static-top {
+	background: none;
+	font-weight:700;
+	border: none;
+	
+	a {
+		color: #000 !important;
+		text-decoration: none;
+		font-weight: inherit;
+	}
+	
+	a:active,
+	a:focus,
+	a:hover {
+		text-decoration: none;
+		color: #000;
+	}
 }
 
 .wookmark-row
