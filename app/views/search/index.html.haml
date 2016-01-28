@@ -26,13 +26,8 @@
 .row.wookmark-row
   .col-md-12
     - @tags.each do |tag|
-
       %span{ style: "font-size: #{tag.font_size}em;"}
-        = link_to root_url(tags: "##{tag.name}"), class:"color-tag", style: "background: #{tag.color}; color: #{tag.color};" do
-          %span
-            - if tag.icon.present?
-              %i{class: "fa #{tag.icon}"}
-            = "##{tag.name}"
+        = render partial: "tags/row", locals: { tag: tag}
 .row.wookmark-row
   .col-md-12
     .wookmarkable
@@ -43,7 +38,3 @@
           = render partial: 'story_result', locals: { result: r }
         - elsif r.class.name == "Tweet"
           = render partial: 'twitter_result', locals: { result: r}
-
-  .col-md-2
-    - @tags.each do |tag|
-      = render partial: 'tags/row', locals: {tag: tag}
