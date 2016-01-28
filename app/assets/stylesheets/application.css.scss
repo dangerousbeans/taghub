@@ -64,7 +64,6 @@ a {
     .media-middle,
     .media-left {
     
-      background: #0ff;
       padding: 0;
       margin: 0;
       margin: 6.25%;
@@ -131,13 +130,8 @@ a {
        
        clear: both;
        
-       img {
-         max-width: 100% !important;
-       }
-       
        iframe {
          max-width: 100% !important;
-         display:none;
        }
      
      }
