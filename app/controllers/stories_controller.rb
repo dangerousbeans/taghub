@@ -26,11 +26,13 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
 
-    # debugger
-    params["story"]["tag_list"].gsub("#", "").split(" ").each do |tag|
+    # puts @story
+    # puts story_params
+
+    params["hashtags"].gsub("#", "").split(" ").each do |tag|
       t = Tag.where('lower(name) = ?', tag.downcase).first
 
-      @story.tag_list.add t.name if t
+      @story.tag_list.add t.name.gsub("#", "") if t
     end
 
     respond_to do |format|
