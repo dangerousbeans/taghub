@@ -153,9 +153,10 @@ h1 {
       margin: 6.25%;
 
      h3 {
-     	font-size: 16px;
+     	font-size: 1.14285714285714em;
      	line-height: 1.4em;
-     	font-weight: 700;
+     	font-weight: 500;
+     	margin: 1.1em 0;
      }
 
      .hashtags {
@@ -163,12 +164,11 @@ h1 {
      	clear:both;
      	margin-top: 1em;
 
-
      .hashtag {
-     	font-size: 16px;
+     	
      	line-height: 1.4em;
      	font-weight: 700;
-     	background: #f0f;
+     	background: #EEE;
      	display: inline-block;
      	border-radius: 4px;
      	padding: 1px 4px;
