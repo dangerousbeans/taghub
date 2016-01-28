@@ -18,6 +18,17 @@ class SearchController < ApplicationController
       @hashtags = "#{@hashtags} #{forced_keyword}" unless @hashtags.include?(forced_keyword)
     end
 
+    # Pick out the main tags
+    focus_tags = @hashtags.split(" ")
+
+    @active_tags = []
+    focus_tags.each do |t|
+      t = t.gsub("#", "")
+      t = Tag.where('lower(name) = ?', t.downcase).first
+
+      @active_tags.push t if t
+    end
+
     @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
 
     @twitter_results.each do |tr|
@@ -35,8 +46,9 @@ class SearchController < ApplicationController
       @video_results = videos.where(q: @hashtags)
     end
 
-    @twitter_results = Tweet.all.to_a
-    @social_results = @twitter_results
+    @twitter_results = Tweet.search(@hashtags).records.to_a
+
+    @social_results = @twitter_results# + @video_results
 
     @video_results.each.with_index do |video, i|
       @social_results << video

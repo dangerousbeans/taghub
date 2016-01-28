@@ -8,7 +8,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
 
     %title= content_for?(:title) ? yield(:title) : "NZ Makers Map"
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Nz Makers'}"}
+    %meta{ name: "description", content: "#{ content_for?(:description) ? yield(:description) : "#MakerHood" }"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
@@ -34,25 +34,25 @@
           %span.fa.fa-bar
           %span.fa.fa-bar
         = link_to root_url, :class => "navbar-brand" do
-          Makers Net
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li
-              = link_to places_path do
-                Map
-                %span.glyphicon.glyphicon-globe
-            %li
-              = link_to stories_path do
-                Stories
-                %span.glyphicon.glyphicon-heart-empty
-            %li
-              = link_to people_path do
-                People
-                %span.glyphicon.glyphicon-user
-            %li
-              = link_to events_path do
-                Events
-                %span.glyphicon.glyphicon-calendar
+          Makerhood
+        -# .navbar-collapse.collapse.navbar-responsive-collapse
+        -#   %ul.nav.navbar-nav
+        -#     %li
+        -#       = link_to places_path do
+        -#         Map
+        -#         %span.glyphicon.glyphicon-globe
+        -#     %li
+        -#       = link_to stories_path do
+        -#         Stories
+        -#         %span.glyphicon.glyphicon-heart-empty
+        -#     %li
+        -#       = link_to people_path do
+        -#         People
+        -#         %span.glyphicon.glyphicon-user
+        -#     %li
+        -#       = link_to events_path do
+        -#         Events
+        -#         %span.glyphicon.glyphicon-calendar
           = form_for root_url, method: :get, html: { class: "navbar-form navbar-right"} do |f|
             .form-group.input-group-lg
               %input.form-control{ type: 'text', placeholder: "Search", name: 'q', value: params[:q] }

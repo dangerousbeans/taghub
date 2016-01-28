@@ -1,4 +1,5 @@
 class Place < ActiveRecord::Base
+  acts_as_taggable
   include MakerThing
 
   def self.data_fields

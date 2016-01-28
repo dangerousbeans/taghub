@@ -2,6 +2,9 @@
 
 %h4= @tag.name
 
+Places
+= @tag.places.to_a
+
 = link_to edit_tag_path(@tag), class: 'btn btn-default' do
   %span.glyphicon.glyphicon-pencil
   Edit

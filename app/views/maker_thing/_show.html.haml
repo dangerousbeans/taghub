@@ -5,14 +5,14 @@
   %p
     = markdown(maker_thing.description).html_safe
 
-- if maker_thing.data
-  %table.table
-    - maker_thing.data.each_pair do |k,v|
-      %tr
-        %td
-          %b= k
-        %td
-          = v
+-# - if maker_thing.data
+-#   %table.table
+-#     - maker_thing.data.each_pair do |k,v|
+-#       %tr
+-#         %td
+-#           %b= k
+-#         %td
+-#           = v
 
 %p
   %b location:

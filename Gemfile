@@ -45,8 +45,8 @@ source 'https://rubygems.org' do
   gem 'jbuilder', '~> 2.0'
 
   gem 'newrelic_rpm'
-  # gem 'angular-rails-templates'
 
+  # gem 'link_thumbnailer'
   gem 'acts-as-taggable-on', '~> 3.4'
 
   group :development do

@@ -1,8 +1,19 @@
 %h1= @hashtags
 
 
-= link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags}", class: "btn btn-success" do
-  Add
+- @active_tags.each do |t|
+  = t.name
+  - t.places.each do |p|
+    .row
+      .col-md-8
+        = render partial: "maker_thing/show", locals: { maker_thing: p }
+      .col-md-4
+        #map_container
+
+
+= link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '')}", class: "btn btn-success" do
+  %span.glyphicon.glyphicon-tweet
+  Tweet
 .row.wookmark-row
 
   .col-md-10
@@ -14,6 +25,5 @@
           = render partial: 'twitter_result', locals: { result: r}
   .col-md-2
     - @tags.each do |tag|
-
       %strong{ style: "font-size: #{tag.font_size}em;"}
         = link_to "##{tag.name}", root_url(tags: "##{tag.name}")
