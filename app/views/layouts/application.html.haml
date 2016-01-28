@@ -36,13 +36,12 @@
           %span.fa.fa-bar
         = link_to root_url, :class => "navbar-brand" do
           &#35;makerhood
-        = link_to root_url, :class => "navbar-brand" do
+        -#= link_to root_url, :class => "navbar-brand" do
           about
-  .navbar-collapse.collapse.navbar-responsive-collapse
-  %ul.nav.navbar-nav.col-md-6
-  %li
-  = link_to root_url, :class => "nav-link" do
-    &#35;makerhood
+        %ul.nav.navbar-nav
+          %li
+            = link_to root_url, :class => "nav-link" do
+              about
     -#     %li
     -#       = link_to places_path do
     -#         Map

@@ -121,9 +121,41 @@ h1 {
 		color: #000;
 	}
 
-	.navbar-brand {
-		padding: 30px 0;
-		margin: 30px 0;
+}
+
+.navbar {
+	
+	.nav  {
+		text-align: right;
+		float:right;
+		
+		li  {
+			a {
+				font-weight: 700;
+				text-transform: none;
+				font-size: 2em;
+				
+				margin: 0;
+				margin-left: 0.5em;
+				padding:0;
+			}
+		}
+	}
+}
+
+.navbar-nav {
+	
+	
+	li {
+	
+		a {
+			text-transform: none !important;
+		}
+		
+	}
+	
+	a.navbar-link {
+		text-transform:none !important;
 	}
 }
 
