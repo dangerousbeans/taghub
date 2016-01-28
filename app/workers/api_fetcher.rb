@@ -1,5 +1,7 @@
 class ApiFetcher
   include Sidekiq::Worker
+  sidekiq_options unique: :until_timeout, unique_expiration: 1 * 60 # 2 hours
+
   def perform(query)
     @twitter ||= Twitter::REST::Client.new do |config|
      config.consumer_key        = ENV["twitter_consumer_key"]

@@ -290,6 +290,9 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-unique-jobs (4.0.13)
+      sidekiq (>= 2.6)
+      thor
     simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -382,6 +385,7 @@ DEPENDENCIES
   rspec-rails!
   sass-rails (~> 5.0)!
   sidekiq!
+  sidekiq-unique-jobs!
   simple_form!
   spring!
   turbolinks!
