@@ -42,9 +42,7 @@ options = {
 }
 
 MakerMap.setup = () ->
-  $(".chosen-select").chosen
-  $('.colors input[type=text]').minicolors()
-
+  
   # Bring online fancy markdown editor
   if $("textarea").length > 0
     editor = new Editor()
