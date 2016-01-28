@@ -23,6 +23,7 @@ source 'https://rubygems.org' do
   gem 'twitter'
   gem 'rails_autolink'
 
+  gem 'sidekiq'
 
   # AR Extensions
   gem 'activerecord-postgres-earthdistance'
