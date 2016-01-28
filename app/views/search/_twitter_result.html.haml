@@ -17,6 +17,5 @@
         = result.safe_data.user["name"]
 
       %p.hashtags
-        - result.safe_data.entities["hashtags"].each do |hashtag|
-          - next if hashtag == "makerhood"
-          = link_to "##{hashtag['text']}", root_url(tags: "##{hashtag['text']}"), class: "hashtag"
+        - result.tags.each do |tag|
+          = render partial: 'tags/row', locals: {tag: tag}
