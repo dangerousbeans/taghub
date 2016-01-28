@@ -11,7 +11,7 @@
         #map_container
 
 
-= link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '')}", class: "btn btn-success" do
+= link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '').gsub(" ", ',')}", class: "btn btn-success" do
   %span.glyphicon.glyphicon-tweet
   Tweet
 .row.wookmark-row

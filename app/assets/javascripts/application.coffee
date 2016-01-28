@@ -20,7 +20,6 @@
 #= require_tree .
 
 
-
 window.MakerMap = {}
 exports = MakerMap
 options = {

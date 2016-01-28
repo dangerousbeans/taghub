@@ -3,6 +3,7 @@
 
   .form-inputs
     = f.input :name
+    = f.input :color
     = f.association 'places', :include_blank => false, input_html: { class: "chosen-select", data: { placeholder: "Select places for this tag" } }
 
   .form-actions
