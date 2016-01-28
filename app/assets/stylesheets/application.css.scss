@@ -20,6 +20,34 @@
  *= require_self
  */
 
+body {
+	margin: 0 3.846153846154% 0 7.692307692308%;
+	padding-left: 0%;
+	background: #0ff;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+#main_content {
+	background: #f0f;
+}
+
+
+	a {
+		color: #000;
+		text-decoration: none;
+		font-weight: inherit;
+	}
+	
+	a:active,
+	a:focus,
+	a:hover {
+		text-decoration: none;
+		color: #000;
+	}
+
 
 #main_nav
 {
@@ -29,6 +57,32 @@
 #map-container
 {
   min-height: 35em
+}
+
+.navbar-static-top {
+	background: none;
+	font-weight:700;
+	border: none;
+	
+	
+	
+	a {
+		color: #000 !important;
+		text-decoration: none;
+		font-weight: inherit;
+	}
+	
+	a:active,
+	a:focus,
+	a:hover {
+		text-decoration: none;
+		color: #000;
+	}
+	
+	.navbar-brand {
+		padding: 30px 0;
+		margin: 0;
+	}
 }
 
 .wookmark-row
@@ -43,6 +97,7 @@
 {
   border: 0;
   box-shadow: none;
+  background: rgba(255, 255, 255, 0.3);
   
   .panel-body
   {
@@ -51,7 +106,6 @@
     .media-middle,
     .media-left {
     
-      background: #0ff;
       padding: 0;
       margin: 0;
       margin: 6.25%;
@@ -62,6 +116,12 @@
      	font-weight: 700;
      }
      
+     .hashtags {
+     
+     	clear:both;
+     	margin-top: 1em;
+     	
+     
      .hashtag {
      	font-size: 16px;
      	line-height: 1.4em;
@@ -70,19 +130,50 @@
      	display: inline-block;
      	border-radius: 4px;
      	padding: 1px 4px;
+     	margin: 2px 2px 2px 0;
+     	
+     	a {
+     		color: #000;
+     		text-decoration: none;
+     		font-weight: inherit;
+     	}
+     	a:active,
+     	a:focus,
+     	a:hover {
+     		text-decoration: none;
+     		color: #000;
+     	}
+     	
+     	
+     }
+     
+     .hashtag:hover {
+     	background: #000;
+     	display: inline-block;
+     	
+     	a {
+     		color: #fff !important;
+     		text-decoration: none;
+     		font-weight: inherit;
+     	}
+     	a:active,
+     	a:focus,
+     	a:hover {
+     		text-decoration: none;
+     		color: #fff !important;
+     	}
+     	
+     	
+     }
+     
      }
       
      media {
        
        clear: both;
        
-       img {
-         max-width: 100% !important;
-       }
-       
        iframe {
          max-width: 100% !important;
-         display:none;
        }
      
      }
