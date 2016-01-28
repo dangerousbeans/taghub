@@ -58,6 +58,6 @@ class SearchController < ApplicationController
 
     # @social_results.shuffle!
 
-    @tags = Tag.all.order(taggings_count: :desc)
+    @tags = Tag.all.order(taggings_count: :desc).limit(30)
   end
 end

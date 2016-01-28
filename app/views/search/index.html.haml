@@ -2,7 +2,6 @@
 
 
 - @active_tags.each do |t|
-  = t.name
   - t.places.each do |p|
     .row
       .col-md-8
@@ -10,12 +9,13 @@
       .col-md-4
         #map_container
 
-
 = link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '').gsub(" ", ',')}", class: "btn btn-success" do
   %span.glyphicon.glyphicon-tweet
   Tweet
-.row.wookmark-row
 
+= link_to new_story_path, class: "btn btn-success" do
+  Tell Story
+.row.wookmark-row
   .col-md-10
     .wookmarkable
       - @social_results.each do |r|
@@ -26,4 +26,4 @@
   .col-md-2
     - @tags.each do |tag|
       %strong{ style: "font-size: #{tag.font_size}em;"}
-        = link_to "##{tag.name}", root_url(tags: "##{tag.name}")
+        = link_to "##{tag.name}", root_url(tags: "##{tag.name}"), style: "color: #{tag.color};"
