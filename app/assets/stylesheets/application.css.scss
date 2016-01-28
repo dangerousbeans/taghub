@@ -41,6 +41,9 @@ body {
 
 h1 {
 	
+	font-weight:800;
+	color: #000;
+	
 	&.tag-line {
 		margin: 1em 1em;
 		text-align: center;
@@ -55,6 +58,20 @@ h1 {
 		color: #000;
 		text-decoration: none;
 		font-weight: inherit;
+		
+		&.color-tag {
+			border-radius: 0.2em;
+			padding: 0.1em 0.5em;
+			background: #FFF;
+			color: #000 !important;
+			
+			&:active,
+			&:focus,
+			&:hover {
+				color: #fff !important;
+				background: #000 !important;
+			}
+		}
 	}
 	
 	a:active,
@@ -63,6 +80,7 @@ h1 {
 		text-decoration: none;
 		color: #000;
 	}
+
 
 
 #main_nav
