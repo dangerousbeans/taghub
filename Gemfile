@@ -44,6 +44,7 @@ source 'https://rubygems.org' do
   gem 'jquery-rails'
   gem 'jbuilder', '~> 2.0'
 
+  gem 'sidekiq'
   gem 'newrelic_rpm'
 
   # gem 'link_thumbnailer'
