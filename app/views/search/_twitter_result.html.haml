@@ -6,10 +6,9 @@
         - if result.safe_data.entities
           - result.safe_data.entities.each do |media|
             - media[1].each do |url|
-              = image_tag url['media_url']
+              = image_tag url['media_url'], class: "img-responsive"
               - if url['expanded_url']
-                %iframe{ src: "https://www.youtube.com/embed/#{url['expanded_url'].split("/").last }", frameborder: "0" }           
-
+                %iframe{ src: "https://www.youtube.com/embed/#{url['expanded_url'].split("/").last }", frameborder: "0" }
 
       %h3
         = auto_link(result.safe_data.text).html_safe
