@@ -37,7 +37,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to root_url, notice: 'Story TOLD.' }
+        format.html { redirect_to root_url(tags: params[:hashtags]), notice: 'Story TOLD.' }
         format.json { render :show, status: :created, location: @story }
       else
         format.html { render :new }
