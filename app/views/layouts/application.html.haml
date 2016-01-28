@@ -27,6 +27,15 @@
         js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=402343199974754";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
+      <script type="text/javascript">
+        (function() {
+          var config = {
+            kitId: 'bhq4pej',
+            scriptTimeout: 3000
+          };
+          var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+        })();
+      </script>
     #main_nav.navbar.navbar-default.navbar-static-top
       .container-fluid
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
@@ -35,24 +44,29 @@
           %span.fa.fa-bar
         = link_to root_url, :class => "navbar-brand" do
           &#35;makerhood
-        -# .navbar-collapse.collapse.navbar-responsive-collapse
-        -#   %ul.nav.navbar-nav
-        -#     %li
-        -#       = link_to places_path do
-        -#         Map
-        -#         %span.glyphicon.glyphicon-globe
-        -#     %li
-        -#       = link_to stories_path do
-        -#         Stories
-        -#         %span.glyphicon.glyphicon-heart-empty
-        -#     %li
-        -#       = link_to people_path do
-        -#         People
-        -#         %span.glyphicon.glyphicon-user
-        -#     %li
-        -#       = link_to events_path do
-        -#         Events
-        -#         %span.glyphicon.glyphicon-calendar
+        = link_to root_url, :class => "navbar-brand" do
+          about
+  .navbar-collapse.collapse.navbar-responsive-collapse
+  %ul.nav.navbar-nav.col-md-6
+  %li
+  = link_to root_url, :class => "nav-link" do
+    &#35;makerhood
+    -#     %li
+    -#       = link_to places_path do
+    -#         Map
+    -#         %span.glyphicon.glyphicon-globe
+    -#     %li
+    -#       = link_to stories_path do
+    -#         Stories
+    -#         %span.glyphicon.glyphicon-heart-empty
+    -#     %li
+    -#       = link_to people_path do
+    -#         People
+    -#         %span.glyphicon.glyphicon-user
+    -#     %li
+    -#       = link_to events_path do
+    -#         Events
+    -#         %span.glyphicon.glyphicon-calendar
           = form_for root_url, method: :get, html: { class: "navbar-form navbar-right"} do |f|
             .form-group.input-group-lg
               %input.form-control{ type: 'text', placeholder: "Search", name: 'q', value: params[:q] }
