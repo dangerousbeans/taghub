@@ -2,9 +2,12 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
+    -# = f.input :name
     -# = f.input :latlong
-    -# = f.input :data
+    = f.input :tag_list
+
+    = f.simple_fields_for :data do |d|
+      = d.input :story, as: :text, required: false, input_html: { value: @story.safe_data.send(:story) }
 
   .form-actions
     = f.button :submit
