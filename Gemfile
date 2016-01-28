@@ -48,6 +48,8 @@ source 'https://rubygems.org' do
   gem 'sidekiq'
   gem 'newrelic_rpm'
 
+  gem 'dalli'
+
   # gem 'link_thumbnailer'
   gem 'acts-as-taggable-on', '~> 3.4'
   gem 'jquery-minicolors-rails'
