@@ -29,7 +29,9 @@ class SearchController < ApplicationController
       @active_tags.push t if t
     end
 
-    @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
+    @twitter_results = Rails.cache.fetch(@hashtags, :expires_in => 1.hours) do
+      @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
+    end
 
     @twitter_results.each do |tr|
       # puts tr.to_json
