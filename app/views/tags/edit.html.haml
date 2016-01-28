@@ -1,7 +1,8 @@
-%h1 Editing tag
+.col-md-12
 
-= render 'form'
+  %h1 Editing tag
 
-= link_to 'Show', @tag
-\|
-= link_to 'Back', tags_path
+  = render 'form'
+
+:coffee
+  MakerMap.setup()
