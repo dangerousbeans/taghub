@@ -8,12 +8,11 @@ class ApiFetcher
      config.access_token_secret = ENV["twitter_access_token_secret"]
     end
 
-    @twitter_results = Rails.cache.fetch(@hashtags, :expires_in => 1.hours) do
+    @twitter_results = Rails.cache.fetch(query, :expires_in => 1.hours) do
       @twitter.search("#{query} -rt", result_type: "recent").take(50)
     end
 
     @twitter_results.each do |tr|
-      # puts tr.to_json
       t = Tweet.find_or_initialize_by(tweet_id: tr.id)
       t.data = tr.to_json
 
