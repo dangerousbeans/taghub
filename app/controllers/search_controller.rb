@@ -29,9 +29,8 @@ class SearchController < ApplicationController
       @active_tags.push t if t
     end
 
-    # @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
-    @twitter_results = []
-
+    @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
+    
     @twitter_results.each do |tr|
       t = Tweet.find_or_initialize_by(tweet_id: tr.id)
       t.data = tr.to_json
