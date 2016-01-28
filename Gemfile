@@ -25,6 +25,7 @@ source 'https://rubygems.org' do
   gem "font-awesome-rails"
 
   gem 'sidekiq'
+  gem 'sidekiq-unique-jobs'
   gem 'newrelic_rpm'
 
   # AR Extensions
@@ -33,6 +34,7 @@ source 'https://rubygems.org' do
   gem 'elasticsearch-rails'
 
   gem "figaro"
+  gem "high_voltage"
 
   gem 'redcarpet'
   gem 'haml-rails'

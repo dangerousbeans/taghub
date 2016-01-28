@@ -29,23 +29,17 @@
         })();
       </script>
     #main_nav.navbar.navbar-default.navbar-static-top
-      .container-fluid
+      .container-fluid.no-padding
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.fa.fa-bar
           %span.fa.fa-bar
           %span.fa.fa-bar
         = link_to root_url, :class => "navbar-brand" do
           &#35;makerhood
-        -#= link_to root_url, :class => "navbar-brand" do
-          about
         %ul.nav.navbar-nav
           %li
-            = link_to root_url, :class => "nav-link" do
-              about
-    -#     %li
-    -#       = link_to places_path do
-    -#         Map
-    -#         %span.glyphicon.glyphicon-globe
+            = link_to page_path('about') do
+              About
     -#     %li
     -#       = link_to stories_path do
     -#         Stories

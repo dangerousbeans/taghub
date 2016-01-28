@@ -29,9 +29,12 @@
   Tell Story
 .row.wookmark-row
   .col-md-12
-    - @tags.each do |tag|
-      %span{ style: "font-size: #{tag.font_size}em;"}
-        = render partial: "tags/row", locals: { tag: tag}
+    - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+      = render partial: "tags/row", locals: { tag: tag, css_class: css_class }
+    -#
+    -# - @tags.each do |tag|
+    -#   %span{ style: "font-size: #{tag.font_size}em;"}
+
 .row.wookmark-row
   .col-md-12
     .wookmarkable

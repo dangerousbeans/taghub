@@ -11,9 +11,6 @@ class SearchController < ApplicationController
       @hashtags = "#{@hashtags} #{forced_keyword}" unless @hashtags.include?(forced_keyword)
     end
 
-    
-    @real_tags = []
-
     # Pick out the main tags
     focus_tags = @hashtags.split(" ")
 
@@ -34,6 +31,6 @@ class SearchController < ApplicationController
 
     @social_results = @twitter_results# + @video_results
 
-    @tags = Tag.where("name != 'makerhood'").order(taggings_count: :desc).limit(30)
+    @tags = Tweet.tag_counts_on(:tags).order(taggings_count: :desc).limit(30)
   end
 end
