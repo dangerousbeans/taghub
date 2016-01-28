@@ -1,6 +1,5 @@
 .panel.panel-default
   .panel-body.search-result-body
-
     .media-left.media-middle
       %media
         - if result.safe_data.entities
@@ -13,6 +12,9 @@
 
       %h3
         = auto_link(result.safe_data.text).html_safe
+
+        = link_to vote_up_path(result.id), :remote => true, class: "btn btn-success vote", data: { id: result.id } do
+          %i.fa.fa-heart.fa-2x
       %media
         = image_tag result.safe_data.user["profile_image_url"]
         = result.safe_data.user["name"]

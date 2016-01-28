@@ -42,7 +42,11 @@ options = {
 }
 
 MakerMap.setup = () ->
-  
+  $(document).on 'ajax:success', 'a.vote', (status,data,xhr)->
+    # the `data` parameter is the decoded JSON object
+    $(".votes-count[data-id=#{data.id}]").text ":D"
+    return
+
   # Bring online fancy markdown editor
   if $("textarea").length > 0
     editor = new Editor()
