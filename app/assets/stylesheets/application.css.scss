@@ -20,6 +20,19 @@
  *= require_self
  */
 
+a {
+		color: #000;
+		text-decoration: none;
+		font-weight: inherit;
+	}
+	
+	a:active,
+	a:focus,
+	a:hover {
+		text-decoration: none;
+		color: #000;
+	}
+
 
 #main_nav
 {
@@ -62,6 +75,12 @@
      	font-weight: 700;
      }
      
+     .hashtags {
+     
+     	clear:both;
+     	margin-top: 1em;
+     	
+     
      .hashtag {
      	font-size: 16px;
      	line-height: 1.4em;
@@ -70,6 +89,42 @@
      	display: inline-block;
      	border-radius: 4px;
      	padding: 1px 4px;
+     	margin: 2px 2px 2px 0;
+     	
+     	a {
+     		color: #000;
+     		text-decoration: none;
+     		font-weight: inherit;
+     	}
+     	a:active,
+     	a:focus,
+     	a:hover {
+     		text-decoration: none;
+     		color: #000;
+     	}
+     	
+     	
+     }
+     
+     .hashtag:hover {
+     	background: #000;
+     	display: inline-block;
+     	
+     	a {
+     		color: #fff !important;
+     		text-decoration: none;
+     		font-weight: inherit;
+     	}
+     	a:active,
+     	a:focus,
+     	a:hover {
+     		text-decoration: none;
+     		color: #fff !important;
+     	}
+     	
+     	
+     }
+     
      }
       
      media {
