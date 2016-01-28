@@ -1,21 +1,24 @@
 - if (params.has_key?(:tags))
-  %h1.color-tag= @hashtags.gsub("#makerhood", "")
+  -# %h1.color-tag= @hashtags.gsub("#makerhood", "")
 - else
   = image_tag "hp_banner", class: "img-responsive"
   %h1.tag-line #makerhood is the community that creates its own reality.
 
-- @hashtags.split(" ").each do |hashtag|
-  - next if hashtag != "#makerhood"
-  %h1.color-tag{ style: "font-size: 2em;"}
-
+- @active_tags.each do |t|
+  - next if t.name == "makerhood"
+  = render partial: "tags/row", locals: { tag: t}
 
 - @active_tags.each do |t|
-  - t.places.each do |p|
-    .row
-      .col-md-8
-        = render partial: "maker_thing/show", locals: { maker_thing: p }
-      .col-md-4
-        #map_container
+  - if t.description.present?
+    .tag_description
+      = markdown(t.description).html_safe
+
+  -# - t.places.each do |p|
+  -#   .row
+  -#     .col-md-8
+  -#       = render partial: "maker_thing/show", locals: { maker_thing: p }
+  -#     .col-md-4
+  -#       #map_container
 
 = link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '').gsub(" ", ',')}", class: "btn btn-success" do
   %span.glyphicon.glyphicon-tweet
