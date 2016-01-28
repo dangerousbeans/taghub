@@ -27,7 +27,8 @@ class SearchController < ApplicationController
     rescue Exception => e
       console.log e
     end
-    @twitter_results = Elasticsearch::Model.search({ query: { "query_string": { query: @hashtags.split(" ").join(" AND ") } } }, [Tweet, Story]).records.to_a
+
+    @twitter_results = Elasticsearch::Model.search({ query: { "query_string": { query: @hashtags.split(" ").join(" AND ") } }, "sort": { "votes_up": { "order": "desc" }} }, [Tweet, Story]).records.to_a
 
     @social_results = @twitter_results# + @video_results
 

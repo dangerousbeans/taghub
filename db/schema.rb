@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128192946) do
+ActiveRecord::Schema.define(version: 20160128220050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,8 +102,9 @@ ActiveRecord::Schema.define(version: 20160128192946) do
   create_table "tweets", force: :cascade do |t|
     t.string   "tweet_id"
     t.jsonb    "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "votes_up",   default: 0
   end
 
   create_table "users", force: :cascade do |t|
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 20160128192946) do
     t.string   "voteable_type"
     t.string   "ip"
     t.datetime "created_at"
+    t.integer  "tweet_id"
   end
 
 end
