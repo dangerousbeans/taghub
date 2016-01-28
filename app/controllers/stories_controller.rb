@@ -26,15 +26,16 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
 
-    params[:hashtags].gsub("#", "").split(" ").each do |tag|
-      tag = Tag.where('lower(name) = ?', tag.downcase).first
+    # debugger
+    params["story"]["tag_list"].gsub("#", "").split(" ").each do |tag|
+      t = Tag.where('lower(name) = ?', tag.downcase).first
 
-      @story.tag_list.add tag if tag
+      @story.tag_list.add t.name if t
     end
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Story TOLD.' }
         format.json { render :show, status: :created, location: @story }
       else
         format.html { render :new }
@@ -75,6 +76,6 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:name, :latlong, :data, :tags)
+      params.require(:story).permit!#(:name, :latlong, :data, :tags)
     end
 end
