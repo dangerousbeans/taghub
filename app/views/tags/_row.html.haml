@@ -1,5 +1,5 @@
 - css_class = "" unless local_assigns[:css_class]
-%strong
+%span
   = link_to root_url(tags: "##{tag.name}"), class:"color-tag #{css_class}", style: "background: #{tag.color}; color: #{tag.color};" do
     %span
       - if tag.icon.present?

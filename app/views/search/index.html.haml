@@ -4,9 +4,10 @@
   = image_tag "hp_banner.jpg", class: "img-responsive"
   %h1.tag-line #makerhood is the community that creates its own reality.
 
-- @active_tags.each do |t|
-  - next if t.name == "makerhood"
-  = render partial: "tags/row", locals: { tag: t}
+%h1.color-tag
+  - @active_tags.each do |t|
+    - next if t.name == "makerhood"
+    = render partial: "tags/row", locals: { tag: t}
 
 - @active_tags.each do |t|
   - if t.description.present?
