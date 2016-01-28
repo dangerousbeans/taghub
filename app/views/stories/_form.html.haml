@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :tag_list, as: :hidden, input_html: { value: params["hashtags"] }
+    = hidden_field_tag :hashtags, params["hashtags"]
 
     = f.simple_fields_for :data do |d|
       = d.input :story, as: :text, required: false, input_html: { value: @story.safe_data.send(:story) }

@@ -30,8 +30,9 @@ class SearchController < ApplicationController
     end
 
     @twitter_results = @twitter.search("#{@hashtags} -rt", result_type: "recent").take(50)
-    
+
     @twitter_results.each do |tr|
+      # puts tr.to_json
       t = Tweet.find_or_initialize_by(tweet_id: tr.id)
       t.data = tr.to_json
 
@@ -40,7 +41,7 @@ class SearchController < ApplicationController
       end
       t.save!
     end
-    #
+
     # @video_results = Rails.cache.fetch(@hashtags, expires_in: 2.hours) do
     #   videos = Yt::Collections::Videos.new
     #   @video_results = videos.where(q: @hashtags)
@@ -49,14 +50,7 @@ class SearchController < ApplicationController
     @twitter_results = Elasticsearch::Model.search({ query: { "query_string": { query: @hashtags.split(" ").join(" AND ") } } }, [Tweet, Story]).records.to_a
 
     @social_results = @twitter_results# + @video_results
-    #
-    # @video_results.each.with_index do |video, i|
-    #   @social_results << video
-    #
-    #   break if i > 10
-    # end
 
-    # @social_results.shuffle!
 
     @tags = Tag.where("name != 'makerhood' AND taggings_count > 0").order(taggings_count: :desc).limit(30)
   end

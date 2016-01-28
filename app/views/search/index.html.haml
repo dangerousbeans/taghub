@@ -21,9 +21,9 @@
       - @social_results.each do |r|
         - if r.is_a?(Yt::Models::Video)
           = render partial: 'video_result', locals: { result: r }
-        - if r.is_a?(Story)
+        - elsif r.class.name == "Story"
           = render partial: 'story_result', locals: { result: r }
-        - if r.is_a?(Tweet)
+        - elsif r.class.name == "Tweet"
           = render partial: 'twitter_result', locals: { result: r}
   .col-md-2
     - @tags.each do |tag|
