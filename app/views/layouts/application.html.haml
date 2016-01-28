@@ -40,13 +40,10 @@
           about
   .navbar-collapse.collapse.navbar-responsive-collapse
   %ul.nav.navbar-nav.col-md-6
-  %li
-  = link_to root_url, :class => "nav-link" do
-    &#35;makerhood
-    -#     %li
-    -#       = link_to places_path do
-    -#         Map
-    -#         %span.glyphicon.glyphicon-globe
+    %li
+      = link_to page_path('about') do
+        About
+        %span.glyphicon.glyphicon-globe
     -#     %li
     -#       = link_to stories_path do
     -#         Stories

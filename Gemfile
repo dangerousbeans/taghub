@@ -34,6 +34,7 @@ source 'https://rubygems.org' do
   gem 'elasticsearch-rails'
 
   gem "figaro"
+  gem "high_voltage"
 
   gem 'redcarpet'
   gem 'haml-rails'
