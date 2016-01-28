@@ -32,11 +32,62 @@
 
 .wookmark-row
 {
-  padding-top: 1.0em;
+  /*padding-top: 1.0em;*/
 }
 .wookmarkable
 {
 }
+
+.panel
+{
+  border: 0;
+  box-shadow: none;
+  
+  .panel-body
+  {
+    width: 100%;
+    padding: 6.25%;
+    
+    .media-left {
+    
+      background: #0ff;
+      
+      
+     media {
+       
+       img {
+         max-width: 100% !important;
+       }
+       
+       iframe {
+         max-width: 100% !important;
+       }
+     
+     }
+   
+    
+    }
+
+    
+    
+    
+  }
+}
+
+
+  media {
+    
+    img {
+      max-width: 100% !important;
+    }
+    
+    iframe {
+      max-width: 100% !important;
+    }
+  
+  }
+
+
 
 
 .tag

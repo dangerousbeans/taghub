@@ -6,8 +6,6 @@
         = image_tag result.safe_data.user["profile_image_url"]
         = result.safe_data.user["name"]
 
-      %h3
-        = auto_link(result.safe_data.text).html_safe
 
       %media
         - if result.safe_data.entities
@@ -18,4 +16,7 @@
               = image_tag url['media_url']
 
               - if url['expanded_url']
-                %iframe{ src: "https://www.youtube.com/embed/#{url['expanded_url'].split("/").last }", frameborder: "0" }
+                %iframe{ src: "https://www.youtube.com/embed/#{url['expanded_url'].split("/").last }", frameborder: "0" }           
+
+      %h4
+        = auto_link(result.safe_data.text).html_safe
