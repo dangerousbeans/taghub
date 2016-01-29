@@ -61,3 +61,5 @@ MakerMap.setup = () ->
 # Fire setup event whenever the page loads
 $(document).ready( MakerMap.setup )
 $(document).on('page:load', MakerMap.setup )
+
+$('.wookmarkable').wookmark(options)
