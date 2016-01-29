@@ -27,10 +27,11 @@
       = render partial: "tags/row", locals: { tag: tag, css_class: css_class }
 
     = link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '').gsub(" ", ',')}", class: "btn btn-success" do
-      %span.glyphicon.glyphicon-tweet
-      Write Tweet
+      %i.fa.fa-twitter.fa-2x
+      Tweet
 
     = link_to new_story_path(hashtags: @hashtags), class: "btn btn-success" do
+      %i.fa.fa-globe.fa-2x
       Tell Story
 
     -#
