@@ -16,7 +16,7 @@
       = image_tag result.safe_data.user["profile_image_url"]
       = result.safe_data.user["name"]
 
-    %p.hashtags
+    %p.hashtags.clearfix
       - result.tags.each do |tag|
         = render partial: 'tags/row', locals: {tag: tag}
   .clearfix
