@@ -4,6 +4,7 @@
     "chosen": "latest",
     "bootstrap": "latest",
     "leaflet": "latest",
-    "wookmark-jquery": "latest"
+    "wookmark-jquery": "latest",
+    "imagesloaded": "latest"
   }
 }
