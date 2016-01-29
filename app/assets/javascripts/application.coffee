@@ -56,7 +56,6 @@ MakerMap.setup = () ->
   $('.wookmarkable').imagesLoaded(
     $('.wookmarkable').wookmark(options)
   )
-
   return
 
 
