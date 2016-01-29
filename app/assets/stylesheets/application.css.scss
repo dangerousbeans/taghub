@@ -43,6 +43,17 @@ body {
 	font-family: "brandon-grotesque", helvetica !important;
 }
 
+.tag_description {
+
+	margin: 4em 0;
+
+	p {
+	font-size: 2em;
+	line-height: 1.25;
+	font-weight: 500;
+	}
+}
+
 .container-fluid.no-padding {
 	padding: 0;
 }
