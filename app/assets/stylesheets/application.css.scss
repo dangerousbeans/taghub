@@ -32,12 +32,13 @@ body {
 	margin: 0 5.769230769231%;
 	
 	/*background: url(<%= asset_path 'pattern_test.jpg' %>) top left repeat;*/
-	background-image: url(image-path('pattern_640_3.jpg'));
-	background-size: 59%;
+	background-image: url(image-path('pattern_new.png'));
+	/*background-size: 59%;
 	background-position: 14% 7em;
 	
 	background-size: 88.5%;
-	background-position: 50% 7em;
+	background-position: 50% 7em;*/
+	background-size: 33.34%;
 
 	font-family: "brandon-grotesque", helvetica !important;
 }
