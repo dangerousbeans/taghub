@@ -17,7 +17,7 @@
 #= require bootstrap
 #= require wookmark-jquery
 #= require jquery.minicolors
-#= require imagesloaded
+
 
 #= require_tree .
 
@@ -53,8 +53,7 @@ MakerMap.setup = () ->
     editor = new Editor()
     editor.render()
 
-  $('.wookmarkable').imagesLoaded ->
-    $('.wookmarkable').wookmark(options)
+  $('.wookmarkable').wookmark(options)
 
   return
 
@@ -62,5 +61,3 @@ MakerMap.setup = () ->
 # Fire setup event whenever the page loads
 $(document).ready( MakerMap.setup )
 $(document).on('page:load', MakerMap.setup )
-
-$('.wookmarkable').wookmark(options)
