@@ -17,6 +17,7 @@
 #= require bootstrap
 #= require wookmark-jquery
 #= require jquery.minicolors
+#= require imagesloaded
 
 #= require_tree .
 
@@ -31,7 +32,7 @@ options = {
   direction: undefined,
   ignoreInactiveItems: true,
   itemWidth: 300,
-  fillEmptySpace: false,
+  fillEmptySpace: true,
   flexibleWidth: "100%",
   offset: 0,
   onLayoutChanged: undefined,
@@ -52,7 +53,8 @@ MakerMap.setup = () ->
     editor = new Editor()
     editor.render()
 
-  $('.wookmarkable').wookmark(options)
+  $('.wookmarkable').imagesLoaded ->
+    $('.wookmarkable').wookmark(options)
 
   return
 
