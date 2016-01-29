@@ -1,4 +1,4 @@
-- if (params.has_key?(:tags))
+- if (params.has_key?(:tags) || params.has_key?(:page))
   -# %h1.color-tag= @hashtags.gsub("#makerhood", "")
 - else
   = image_tag "hp_banner.jpg", class: "img-responsive"
@@ -21,16 +21,18 @@
   -#     .col-md-4
   -#       #map_container
 
-= link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '').gsub(" ", ',')}", class: "btn btn-success" do
-  %span.glyphicon.glyphicon-tweet
-  Write Tweet
-
-= link_to new_story_path(hashtags: @hashtags), class: "btn btn-success" do
-  Tell Story
 .row.wookmark-row
   .col-md-12
     - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
       = render partial: "tags/row", locals: { tag: tag, css_class: css_class }
+
+    = link_to "https://twitter.com/intent/tweet?hashtags=#{@hashtags.gsub("#", '').gsub(" ", ',')}", class: "btn btn-success" do
+      %span.glyphicon.glyphicon-tweet
+      Write Tweet
+
+    = link_to new_story_path(hashtags: @hashtags), class: "btn btn-success" do
+      Tell Story
+
     -#
     -# - @tags.each do |tag|
     -#   %span{ style: "font-size: #{tag.font_size}em;"}
@@ -45,3 +47,4 @@
           = render partial: 'story_result', locals: { result: r }
         - elsif r.class.name == "Tweet"
           = render partial: 'twitter_result', locals: { result: r}
+    = paginate @social_results
