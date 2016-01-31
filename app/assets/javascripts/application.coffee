@@ -32,7 +32,7 @@ options = {
   direction: undefined,
   ignoreInactiveItems: true,
   itemWidth: 300,
-  fillEmptySpace: true,
+  fillEmptySpace: false,
   flexibleWidth: "100%",
   offset: 0,
   onLayoutChanged: undefined,

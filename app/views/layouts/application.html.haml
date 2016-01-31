@@ -18,7 +18,7 @@
 
     = csrf_meta_tags
     = javascript_include_tag '//npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js'
-    
+
   %body
     :plain
       <script type="text/javascript">
@@ -31,7 +31,7 @@
         })();
       </script>
     #main_nav.navbar.navbar-default.navbar-static-top
-      .container-fluid.no-padding
+      .container-fluid
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.fa.fa-bar
           %span.fa.fa-bar
@@ -57,10 +57,17 @@
           = form_for root_url, method: :get, html: { class: "navbar-form navbar-right"} do |f|
             .form-group.input-group-lg
               %input.form-control{ type: 'text', placeholder: "Search", name: 'q', value: params[:q] }
+  - unless (params.has_key?(:tags) || params.has_key?(:page))
+    .container-full
+      = image_tag "makerhood_new.jpg", class: "banner-image"
+      %h1.tag-line
+        We are the #makerhood,
+        %br
+        a community that creates its own destiny.
+
+
 
   #main_content{ class: 'container-fluid' }
-    -# .row{style: 'height: 0'}
-    .row
-      = yield
+    = yield
 
     %footer

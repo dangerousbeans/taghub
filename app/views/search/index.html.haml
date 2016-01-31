@@ -1,13 +1,3 @@
-- if (params.has_key?(:tags) || params.has_key?(:page))
-  -# %h1.color-tag= @hashtags.gsub("#makerhood", "")
-- else
-  .banner-image
-    = image_tag "makerhood_new.jpg", class: "img-responsive"
-  %h1.tag-line 
-    We are the #makerhood, 
-    %br
-    a community that creates its own destiny.
-
 %h1.color-tag
   - @active_tags.each do |t|
     - next if t.name == "makerhood"
