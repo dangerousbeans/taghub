@@ -57,13 +57,7 @@
           = form_for root_url, method: :get, html: { class: "navbar-form navbar-right"} do |f|
             .form-group.input-group-lg
               %input.form-control{ type: 'text', placeholder: "Search", name: 'q', value: params[:q] }
-  - unless (params.has_key?(:tags) || params.has_key?(:page))
-    .container-full
-      = image_tag "makerhood_new.jpg", class: "banner-image"
-      %h1.tag-line
-        We are the #makerhood,
-        %br
-        a community that creates its own destiny.
+  = yield :banner
 
 
 

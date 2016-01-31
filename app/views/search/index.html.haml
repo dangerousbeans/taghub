@@ -1,3 +1,12 @@
+= content_for :banner do
+  - unless (params.has_key?(:tags) || params.has_key?(:page))
+    .container-full
+      = image_tag "makerhood_new.jpg", class: "banner-image"
+      %h1.tag-line
+        We are the #makerhood,
+        %br
+        a community that creates its own destiny.
+
 %h1.color-tag
   - @active_tags.each do |t|
     - next if t.name == "makerhood"
